@@ -1,0 +1,17 @@
+name: 'Localiztion-Management'
+author: 'Novaday'
+description: 'Localiztion Management'
+
+inputs:
+  input_file:
+    description: 'The Excell file'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: install requirements 
+      run: pip install -r ${{ github.action_path }}/requirements.txt
+
+    - run: python ${{ github.action_path }}/convert.py ${{ inputs.input_file }}
+      shell: bash
