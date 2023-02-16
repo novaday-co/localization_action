@@ -14,5 +14,5 @@ runs:
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
       
-    - run: python ${{ github.action_path }}/convert.py ${{ inputs.input_file }}
+    - run: python ${{ github.action_path }}/convert.py -input ${{ inputs.input_file }}
       shell: bash
