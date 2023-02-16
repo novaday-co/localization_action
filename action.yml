@@ -10,7 +10,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: install requirements 
+    - name: install  
       run: pip install -r ${{ github.action_path }}/requirements.txt
 
     - run: python ${{ github.action_path }}/convert.py ${{ inputs.input_file }}
