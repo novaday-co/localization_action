@@ -6,7 +6,18 @@ inputs:
   input_file:
     description: 'The Excell file'
     required: true
-
+  generate_flutter:
+    description: 'generate flutter arb file'
+    required: false
+    default: 'true'
+  generate_laravel:
+    description: 'generate laravel json format file'
+    required: false
+    default: 'true'    
+  generate_vue:
+    description: 'generate vue json format file'
+    required: false
+    default: 'true'
 runs:
   using: 'composite'
   steps:
@@ -14,5 +25,5 @@ runs:
       run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
       
-    - run: python ${{ github.action_path }}/convert.py -input ${{ inputs.input_file }}
+    - run: python ${{ github.action_path }}/convert.py -input ${{ inputs.input_file }} -vue ${{ inputs.generate_vue }} -flutter ${{ inputs.generate_flutter }} -laravel ${{ inputs.generate_laravel }}
       shell: bash
