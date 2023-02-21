@@ -1,7 +1,10 @@
 name: 'Localiztion-Management'
 author: 'Novaday'
 description: 'Localiztion Management'
-
+branding:
+  icon: 'book-open'
+  color: 'blue'
+  
 inputs:
   input_file:
     description: 'The Excell file'
