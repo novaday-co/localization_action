@@ -1,6 +1,6 @@
-name: 'Localiztion-Management'
+name: 'Localization-Management'
 author: 'Novaday'
-description: 'Localiztion Management'
+description: 'This GitHub Action is designed to simplify the localization process for Laravel, Vue, and Flutter applications. It automates the generation of translation files in multiple languages, and supports variables in translations for easy customization.'
 branding:
   icon: 'book-open'
   color: 'blue'
