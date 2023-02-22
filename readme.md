@@ -7,33 +7,64 @@ This GitHub Action is designed to simplify the localization process for Laravel,
 - Generates translation files for Laravel, Vue, and Flutter
 - Supports multiple languages
 - Allows for customization through the use of variables in translations
-- Automatic release of translation files as artifacts
 
 ## Getting Started
 
 To use this GitHub Action, you will need to add the following code to your workflow:
 
 ```
-CODE HERE
+- name: Generate Localization Files
+        uses: novaday-co/localization_action@1.0.0
+        with:
+          input_file: yourExcell.xlsx
+          generate_flutter: true
+          generate_laravel: true
+          generate_vue: true
 ```
 
 ### Input Parameters
 
-- `path`: The path to the directory containing your translation files. This should be relative to your repository's root directory.
-- `laravel`: Set this to `true` if you want to generate Laravel translation files.
-- `vue`: Set this to `true` if you want to generate Vue translation files.
-- `flutter`: Set this to `true` if you want to generate Flutter translation files.
+- `input_file`: The path to the directory containing your translation files. This should be relative to your repository's root directory.
+- `generate_laravel`: Set this to `true` if you want to generate Laravel translation files.
+- `generate_vue`: Set this to `true` if you want to generate Vue translation files.
+- `generate_flutter`: Set this to `true` if you want to generate Flutter translation files.
 
 ### Output
 
-This GitHub Action automatically creates artifacts containing your generated translation files. These artifacts can be downloaded and used for localization purposes.
-
+This GitHub Action automatically creates your generated translation files. These files can be used for localization purposes.
 ## Examples
 
-Here's an example workflow that generates translation files for Laravel, Vue, and Flutter:
+Here's an example workflow that generates translation files for Laravel, Vue, and Flutter And releases translation files as artifacts
 
 ```
-CODE HERE
+name: "Localization Management Sample"
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  development:
+    name: 🎉 Convert Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+		
+      - name: Generate Localization Files
+        uses: novaday-co/localization_action@1.0.0
+        with:
+          input_file: myFile.xlsx
+          generate_flutter: true
+          generate_laravel: true
+          generate_vue: true
+		  
+      - name: Push To Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: '*.json,*.arb'
+          tag : ${{ github.run_number }}
+          token : ${{ secrets.TOKEN }}
 ```
 
 ## Contributions
