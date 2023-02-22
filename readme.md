@@ -24,10 +24,13 @@ To use this GitHub Action, you will need to add the following code to your workf
 
 ### Input Parameters
 
-- `input_file`: The path to the directory containing your translation files. This should be relative to your repository's root directory.
-- `generate_laravel`: Set this to `true` if you want to generate Laravel translation files.
-- `generate_vue`: Set this to `true` if you want to generate Vue translation files.
-- `generate_flutter`: Set this to `true` if you want to generate Flutter translation files.
+| Parameter  | Status  | Description  |
+| ------------ | ------------ | ------------ |
+| input_file  |  required  | The path to the directory containing your translation files. This should be relative to your repository's root directory.  |
+| generate_flutter  | optional  |  Set this to `false` if you don't want to generate Flutter translation files. the default value of this parameter is 'true'. |
+| generate_laravel  |  optional | Set this to `false` if you don't want to generate Laravel translation files. the default value of this parameter is 'true'.  |
+| generate_vue  | optional  | Set this to `false` if you don't want to generate Vue translation files. the default value of this parameter is 'true'.   |
+
 
 ### Output
 
