@@ -14,7 +14,7 @@ def ArgParser():
 
 def convertDictToJson(dict,outputFile):
     with open(outputFile, "w",encoding='utf-8') as file:
-        json_formatted_str = json.dumps(dict, ensure_ascii=False,indent=2).replace('\\n', '\n')
+        json_formatted_str = json.dumps(dict, ensure_ascii=False,indent=2)
         file.write(json_formatted_str)
         file.close()
 
